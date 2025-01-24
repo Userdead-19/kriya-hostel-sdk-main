@@ -14,6 +14,7 @@ const AccommodationPayment = () => {
   const [kriyaId, setKriyaId] = useState("");
   const [data, setData] = useState(null);
   const [room, setRoom] = useState("");
+  const [block, setBlock] = useState("");
 
   const handleChange = (val) => {
     setKriyaId(val);
