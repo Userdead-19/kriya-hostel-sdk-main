@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const BASE_URL = "https://kriyadb.psgtech.ac.in/api";
+export const BASE_URL = "http://localhost:4300/api";
 
 export const EVENT_URL = `${BASE_URL}/event`;
 

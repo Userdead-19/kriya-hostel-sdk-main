@@ -7,6 +7,7 @@ import Button from "../components/Button";
 import { toast } from "react-hot-toast";
 import { fetchAccommodationDetailsbyEmail, fetchAccommodationDetailsbyKriyaId, fetchUpdateAccommodation } from "../API/calls";
 import KriyaInput from "../components/KriyaInput";
+import axios from "axios";
 
 const AccommodationPayment = () => {
   const [type, setType] = useState("KRIYA ID");
@@ -14,7 +15,22 @@ const AccommodationPayment = () => {
   const [kriyaId, setKriyaId] = useState("");
   const [data, setData] = useState(null);
   const [room, setRoom] = useState("");
+  const [roomData, setRoomData] = useState([]); // Store room data here
   const [block, setBlock] = useState("");
+
+  // Fetch room data from API
+  useEffect(() => {
+    const fetchRooms = async () => {
+      try {
+        const response = await axios.get("http://localhost:4300/api/acc/ListofRooms");
+        console.log(response.data);
+        setRoomData(response.data); // Set the room data in state
+      } catch (error) {
+        console.error("Error fetching rooms:", error);
+      }
+    };
+    fetchRooms();
+  }, []);
 
   const handleChange = (val) => {
     setKriyaId(val);
@@ -56,7 +72,6 @@ const AccommodationPayment = () => {
       }
     );
   };
-  
 
   useEffect(() => {
     if (data) {
@@ -128,27 +143,44 @@ const AccommodationPayment = () => {
       {data && (
         <div className="bg-white rounded-md p-4 flex flex-col space-y-4">
           <h1 className="text-xl font-bold">Details</h1>
-          <p className=""><b className="font-semibold">Name:</b> {data.name}</p>
-          <p className=""><b className="font-semibold">Email:</b> {data.email}</p>
-          <p className=""><b className="font-semibold">Kriya ID:</b> {data.kriyaId}</p>
-          <p className=""><b className="font-semibold">College:</b> {data.college}</p>
-          <p className=""><b className="font-semibold">Phone:</b> {data.phone}</p>
-          <p className=""><b className="font-semibold">Gender:</b> {data.gender}</p>
-          <p className=""><b className="font-semibold">Room Type:</b> {data.roomType}</p>
-          <p className=""><b className="font-semibold">No. of Days:</b> {data.days} Days</p>
-          <p className=""><b className="font-semibold">From Date:</b> {data.from}</p>
-          <p className=""><b className="font-semibold">To Date:</b> {data.to}</p>
-          <p className=""><b className="font-semibold">Meals:</b> {data.dinner1 && "23th Dinner, "}{data.breakfast1 && "24th Breakfast, "}{data.dinner2 && "24th Dinner, "}{data.breakfast2 && "25th Breakfast, "}{data.dinner3 && "25th Dinner, "}{data.breakfast3 && "26th Breakfast"}</p>
-          <p className=""><b className="font-semibold">Amenities Required:</b> {data.amenities}</p>
+          <p><b className="font-semibold">Name:</b> {data.name}</p>
+          <p><b className="font-semibold">Email:</b> {data.email}</p>
+          <p><b className="font-semibold">Kriya ID:</b> {data.kriyaId}</p>
+          <p><b className="font-semibold">College:</b> {data.college}</p>
+          <p><b className="font-semibold">Phone:</b> {data.phone}</p>
+          <p><b className="font-semibold">Gender:</b> {data.gender}</p>
+          <p><b className="font-semibold">Room Type:</b> {data.roomType}</p>
+          <p><b className="font-semibold">No. of Days:</b> {data.days} Days</p>
+          <p><b className="font-semibold">From Date:</b> {data.from}</p>
+          <p><b className="font-semibold">To Date:</b> {data.to}</p>
+          <p><b className="font-semibold">Meals:</b> {data.dinner1 && "23th Dinner, "}{data.breakfast1 && "24th Breakfast, "}{data.dinner2 && "24th Dinner, "}{data.breakfast2 && "25th Breakfast, "}{data.dinner3 && "25th Dinner, "}{data.breakfast3 && "26th Breakfast"}</p>
+          <p><b className="font-semibold">Amenities Required:</b> {data.amenities}</p>
           <p className="text-xl"><b className="font-semibold">Total Amount:</b> ₹ {data.amount}</p>
           <p className="text-xl"><b className="font-semibold">Payment Status: {data.payment ? <span className="text-amber-500">Paid</span> : <span className="text-red-500">Not Paid</span>}</b></p>
+
+          {/* Room Number Dropdown */}
+          <div className="my-4">
+            <label htmlFor="roomDropdown" className="block text-sm font-medium text-gray-700 mb-2">
+              Room Number
+            </label>
+            <select
+              id="roomDropdown"
+              value={room}
+              onChange={(e) => setRoom(e.target.value)}
+              className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+            >
+              <option value="" disabled>Select a room</option>
+              {roomData.map((roomItem) => (
+                <option key={roomItem.RoomName} value={roomItem.RoomName}>
+                  Room {roomItem.RoomName} - {roomItem.noOfpersons} People  - (Capacity : {roomItem.Capacity})
+                </option>
+              ))}
+            </select>
+          </div>
+
           <Inputfield
             valueState={[block, setBlock]}
             title="Block"
-          />
-          <Inputfield
-            valueState={[room, setRoom]}
-            title="Room Number"
           />
 
           <div className="flex flex-row space-x-4">

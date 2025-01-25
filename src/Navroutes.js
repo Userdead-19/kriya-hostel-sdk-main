@@ -1,9 +1,10 @@
-import { BiHome,BiDetail } from "react-icons/bi";
+import { BiHome, BiDetail } from "react-icons/bi";
 import Accommodation from "./pages/Accommodation";
 import AccommodationDetails from "./pages/AccommodationDetails";
 import AccommodationEdit from "./pages/AccommodationEdit";
 import AccommodationPayment from "./pages/AccommodationPayment";
 import AccPaid from "./pages/AccPaid";
+import VacateUsers from "./pages/VacateUsers";
 
 const NavRoutes = [
   // {
@@ -35,7 +36,12 @@ const NavRoutes = [
     icon: <BiDetail />,
     href: "/accommodation-paid",
     element: <AccPaid />,
-  },
+  }, {
+    title: "Vacate User",
+    icon: <BiDetail />,
+    href: "/vacate-users",
+    element: <VacateUsers />
+  }
 ];
 
 export default NavRoutes;
