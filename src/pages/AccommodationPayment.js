@@ -156,9 +156,10 @@ const AccommodationPayment = () => {
           <p><b className="font-semibold">Meals:</b> {data.dinner1 && "23th Dinner, "}{data.breakfast1 && "24th Breakfast, "}{data.dinner2 && "24th Dinner, "}{data.breakfast2 && "25th Breakfast, "}{data.dinner3 && "25th Dinner, "}{data.breakfast3 && "26th Breakfast"}</p>
           <p><b className="font-semibold">Amenities Required:</b> {data.amenities}</p>
           <p className="text-xl"><b className="font-semibold">Total Amount:</b> ₹ {data.amount}</p>
-          <p className="text-xl"><b className="font-semibold">Payment Status: {data.payment ? <span className="text-amber-500">Paid</span> : <span className="text-red-500">Not Paid</span>}</b></p>
+          <p className="text-xl"><b className="font-semibold">Payment Status: {data.payment || data.amount===0? <span className="text-amber-500">Paid</span> : <span className="text-red-500">Not Paid</span>}</b></p>
 
           {/* Room Number Dropdown */}
+          {data.gender==="Male"?
           <div className="my-4">
             <label htmlFor="roomDropdown" className="block text-sm font-medium text-gray-700 mb-2">
               Room Number
@@ -176,12 +177,12 @@ const AccommodationPayment = () => {
                 </option>
               ))}
             </select>
-          </div>
-
-          <Inputfield
+          </div>:""
+          }
+          {/* <Inputfield
             valueState={[block, setBlock]}
             title="Block"
-          />
+          /> */}
 
           <div className="flex flex-row space-x-4">
             <Button handleClick={handlePaid} text="Mark as paid" className="w-1/2" />

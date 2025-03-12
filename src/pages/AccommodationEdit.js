@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import Layout from "../components/Layout";
 import Dropdown from "../components/Dropdown";
 import Inputfield from "../components/TextInput";
@@ -27,18 +27,59 @@ const AccommodationEdit = () => {
   const [dinner2, setDinner2] = useState(false);
   const [dinner3, setDinner3] = useState(false);
   const [room, setRoom] = useState("");
-
+  const [nights, setNights] = useState("");
+  const [mornings, setMornings] = useState("");
+  const [totalCost, setTotalCost] = useState(0);
+  const [forceUpdate, setForceUpdate] = useState(false);
+  const maxStay = Math.max(Number(nights) || 0, Number(mornings) || 0);
+  useEffect(() => {
+    console.log("useEffect triggered"); // Debugging log
+    console.log(maxStay)
+    if (!roomType) return;
+  
+    const roomCost = roomType === "PSG IMSR" ? 0 : maxStay * (roomCosts[roomType] || 0);
+    console.log("Room Cost:", roomCost); // Debugging log
+  
+    const mealsCost =
+      50 * ((breakfast1 || 0) + (breakfast2 || 0) + (breakfast3 || 0) + (dinner1 || 0) + (dinner2 || 0) + (dinner3 || 0));
+    console.log("Meals Cost:", mealsCost); // Debugging log
+  
+    const newTotalCost = roomCost + mealsCost;
+    setTotalCost(newTotalCost);
+  
+    console.log("New Total Cost:", newTotalCost); // Debugging log
+  
+  }, [
+    roomType,
+    maxStay,
+    breakfast1,
+    breakfast2,
+    breakfast3,
+    dinner1,
+    dinner2,
+    dinner3,
+  ]);
+  const roomCosts = {
+    "PSG IMSR": 250,
+    "PSG Tech Hostel": 350,
+  };
   const fromDates = [
-    "22nd February Night",
-    "23rd February Morning",
-    "24th February Morning",
-    "25th February Morning",
+    "13th March Night",
+    "14th March Morning",
+    "14th March Night",
+    "15th March Morning",
+    "15th March Night",
+    "16th March Morning",
+    "16th March Night",
   ];
   const toDates = [
-    "23rd February Night",
-    "24th February Night",
-    "25th February Evening",
-    
+    "14th March Morning",
+    "14th March Night",
+    "15th March Morning",
+    "15th March Night",
+    "16th March Morning",
+    "16th March Night",
+
   ]
   const roomCost = {
     "Common Free Hall": 0,
@@ -46,6 +87,7 @@ const AccommodationEdit = () => {
     "4 / 6 Sharing with common bathroom": 150,
     "2 Sharing with attached bathroom": 600,
   };
+  console.log(roomType)
 
   const handleChange = (val) => {
     setKriyaId(val);
@@ -108,79 +150,43 @@ const AccommodationEdit = () => {
       }
     );
   };
-
+ 
   const handleUpdate = () => {
-    if (
-      (fromDate === "23rd March Night" ?
-        (
-          toDates.indexOf(toDate) -
-          fromDates.indexOf(fromDate) + 1
-        ) : (
-          toDates.indexOf(toDate) -
-          fromDates.indexOf(fromDate) + 2
-        )
-      ) <= 0
-    ) {
+    // Calculate the number of days based on the selected dates
+    const days =
+      fromDate === "13th March Night"
+        ? toDates.indexOf(toDate) - fromDates.indexOf(fromDate) + 1
+        : toDates.indexOf(toDate) - fromDates.indexOf(fromDate) + 2;
+  
+    // Validate the date range
+    if (days <= 0 || maxStay===0 && data.gender ==="Male") {
       toast.error("Please select a valid date range");
       return;
     } else {
-      toast.promise(fetchUpdateAccommodation(data.email, {
-        roomType,
-        from: fromDate,
-        to: toDate,
-        amenities,
-        breakfast1,
-        breakfast2,
-        breakfast3,
-        dinner1,
-        dinner2,
-        dinner3,
-        room,
-        days: (fromDate === "23rd March Night" ?
-          (
-            toDates.indexOf(toDate) -
-            fromDates.indexOf(fromDate) + 1
-          ) : (
-            toDates.indexOf(toDate) -
-            fromDates.indexOf(fromDate) + 2
-          )
-        ),
-        amount: ((fromDate === "23rd March Night" ?
-          (
-            toDates.indexOf(toDate) -
-            fromDates.indexOf(fromDate) + 1
-          ) : (
-            toDates.indexOf(toDate) -
-            fromDates.indexOf(fromDate) + 2
-          )
-        ) * roomCost[roomType]) +
-          50 *
-          (breakfast1 +
-            breakfast2 +
-            breakfast3 +
-            dinner1 +
-            dinner2 +
-            dinner3) +
-          (amenities === "Yes" &&
-            100 *
-            (fromDate === "23rd March Night" ?
-              (
-                toDates.indexOf(toDate) -
-                fromDates.indexOf(fromDate) + 1
-              ) : (
-                toDates.indexOf(toDate) -
-                fromDates.indexOf(fromDate) + 2
-              )
-            ))
-      }), {
-        loading: "Updating Details",
-        success: (res) => {
-          setData(null);
-          return "Details Updated";
-        }
-      },
+      // Use toast.promise to handle the async operation
+      toast.promise(
+        fetchUpdateAccommodation(data.email, {
+          roomType,
+          from: fromDate,
+          to: toDate,
+          amenities,
+          breakfast1,
+          breakfast2,
+          breakfast3,
+          dinner1,
+          dinner2,
+          dinner3,
+          room,
+          days: days, // Use the calculated days
+          amount: totalCost, // Use the totalCost state variable
+        }),
         {
-          error: "Error Updating Details"
+          loading: "Updating Details",
+          success: (res) => {
+            setData(null); // Clear the data
+            return "Details Updated";
+          },
+          error: "Error Updating Details",
         }
       );
     }
@@ -231,8 +237,8 @@ const AccommodationEdit = () => {
                 <Toggle
                   title="Room Type"
                   valueState={[roomType, setRoomType]}
-                  options={["Common Free Hall", "Two Sharing"]}
-                  amount={["Free", "₹ 150"]}
+                  options={["PSG IMSR", "PSG Tech Hostel"]}
+                  amount={["₹ 250", "₹ 350"]}
                   className="w-full"
                 />
 
@@ -248,11 +254,10 @@ const AccommodationEdit = () => {
                   title="Room Type"
                   valueState={[roomType, setRoomType]}
                   options={[
-                    "Common Free Hall",
-                    "4 / 6 Sharing with common bathroom",
-                    "2 Sharing with attached bathroom",
+                    "PSG IMSR",
+
                   ]}
-                  amount={["Free", "₹ 150", "₹ 600"]}
+                  amount={["₹ 250"]}
                   className="w-full"
                 />
               </div>
@@ -275,7 +280,7 @@ const AccommodationEdit = () => {
             No. of days:{" "}
             <b className="font-semibold">
               {
-                fromDate === "23rd March Night" ?
+                fromDate === "13th March Night" ?
                   (
                     toDates.indexOf(toDate) -
                     fromDates.indexOf(fromDate) + 1
@@ -284,8 +289,50 @@ const AccommodationEdit = () => {
                     fromDates.indexOf(fromDate) + 2
                   )
               }
+
             </b>
           </p>
+          {/* <p className="mt-2 pl-2">
+            No. of d: <b className="font-semibold">{getMaxStay(fromDate, toDate)}</b>
+          </p> */}
+          {(data.gender==="Male" && roomType==="PSG Tech Hostel")?
+          <div className="flex flex-col items-center justify-center p-6 space-y-4 w-full">
+            <h2 className="text-2xl font-semibold">Enter no of nights/morning</h2>
+
+            {/* Input Fields */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col">
+                <label className="font-medium">Number of Nights</label>
+                <input
+                  type="number"
+                  min="0"
+                  value={nights}
+                  onChange={(e) => setNights(e.target.value)}
+                  className="border p-2 rounded-lg w-40 text-center"
+                  placeholder="Enter nights"
+                />
+              </div>
+
+              <div className="flex flex-col">
+                <label className="font-medium">Number of Mornings</label>
+                <input
+                  type="number"
+                  min="0"
+                  value={mornings}
+                  onChange={(e) => setMornings(e.target.value)}
+                  className="border p-2 rounded-lg w-40 text-center"
+                  placeholder="Enter mornings"
+                />
+              </div>
+            </div>
+
+            {/* Display Maximum Stay */}
+            {/* <p className="text-lg font-semibold mt-2">
+              Maximum Stay: <span className="text-blue-600">{maxStay}</span> days
+            </p> */}
+          </div>:""
+          }
+
 
           <div className="w-full">
             <h1 className="mt-1 text-lg font-semibold">Meals</h1>
@@ -299,7 +346,7 @@ const AccommodationEdit = () => {
               <p className="w-1/3 flex justify-center">Dinner</p>
             </div>
             <div className="flex flex-row mt-4 w-full items-center">
-              <p className="w-1/3">23rd March</p>
+              <p className="w-1/3">13th March</p>
               <div className="w-1/3 flex justify-center">
               </div>
               <div className="w-1/3 flex justify-center">
@@ -315,7 +362,7 @@ const AccommodationEdit = () => {
               </div>
             </div>
             <div className="flex flex-row mt-4 w-full items-center">
-              <p className="w-1/3">24th March</p>
+              <p className="w-1/3">14th March</p>
               <div className="w-1/3 flex justify-center">
                 <button
                   className={`${breakfast1 && "bg-[#C80067]"
@@ -340,7 +387,7 @@ const AccommodationEdit = () => {
               </div>
             </div>
             <div className="flex flex-row mt-4 w-full items-center">
-              <p className="w-1/3">25th March</p>
+              <p className="w-1/3">15th March</p>
               <div className="w-1/3 flex justify-center">
                 <button
                   className={`${breakfast2 && "bg-[#C80067]"
@@ -365,7 +412,7 @@ const AccommodationEdit = () => {
               </div>
             </div>
             <div className="flex flex-row mt-4 w-full items-center">
-              <p className="w-1/3">26th March</p>
+              <p className="w-1/3">16th March</p>
               <div className="w-1/3 flex justify-center">
                 <button
                   className={`${breakfast3 && "bg-[#C80067]"
@@ -382,19 +429,19 @@ const AccommodationEdit = () => {
             </div>
           </div>
 
-          <Toggle
+          {/* <Toggle
             title="Amenities Required"
             valueState={[amenities, setAmenities]}
             options={["Yes", "No"]}
             amount={["₹ 100", "Free"]}
             className="w-full"
-          />
+          /> */}
 
           <div className="flex flex-row w-1/2 items-center border-t border-b pb-2 border-black pt-2">
             <p className="w-1/2 text-lg">New Total</p>
             <p className="text-xl font-semibold w-1/2 flex justify-end">
-              ₹{" "}
-              {((fromDate === "23rd March Night" ?
+              {/* ₹{" "}
+              {((fromDate === "13th March Night" ?
                 (
                   toDates.indexOf(toDate) -
                   fromDates.indexOf(fromDate) + 1
@@ -409,20 +456,27 @@ const AccommodationEdit = () => {
                   breakfast3 +
                   dinner1 +
                   dinner2 +
-                  dinner3) +
-                (amenities === "Yes" &&
-                  100 *
-                  (fromDate === "23rd March Night" ?
-                    (
-                      toDates.indexOf(toDate) -
-                      fromDates.indexOf(fromDate) + 1
-                    ) : (
-                      toDates.indexOf(toDate) -
-                      fromDates.indexOf(fromDate) + 2
-                    )
-                  ))}
+                  dinner3)
+              } */}
+              {totalCost}
             </p>
           </div>
+
+          {/* <div className="flex flex-row w-1/2 items-center border-t border-b pb-2 border-black pt-2">
+            <p className="w-1/2 text-lg">New Total</p>
+            <p className="text-xl font-semibold w-1/2 flex justify-end">
+              ₹{" "}
+              {(Math.max(
+                fromDate === "13th March Night"
+                  ? toDates.indexOf(toDate) - fromDates.indexOf(fromDate) + 1
+                  : toDates.indexOf(toDate) - fromDates.indexOf(fromDate) + 2,
+                breakfast1 + breakfast2 + breakfast3 + dinner1 + dinner2 + dinner3
+              ) *
+                roomCosts[roomType]) +
+                50 * (breakfast1 + breakfast2 + breakfast3 + dinner1 + dinner2 + dinner3)}
+            </p>
+          </div>; */}
+
 
           <div className="flex flex-row space-x-4">
             <Button handleClick={handleUpdate} text="Update Data" className="w-1/2 mt-4" />

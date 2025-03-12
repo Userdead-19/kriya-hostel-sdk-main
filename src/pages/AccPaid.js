@@ -117,7 +117,7 @@ const AccPaid = () => {
           <p className="hidden lg:block w-[5%] font-semibold">Vacated</p>
         </div>
         {male &&
-          filterList(male, maleSearch).map((item, index) => (
+          filterList(male, maleSearch).filter(item => item.vacated===false).map((item, index) => (
             <div
               key={item.email}
               className="flex flex-row text-sm text-center py-2 border-b border-gray-500"
@@ -218,7 +218,7 @@ const AccPaid = () => {
           <p className="hidden lg:block w-[5%] font-semibold">Vacated</p>
         </div>
         {female &&
-          filterList(female, femaleSearch).map((item, index) => (
+          filterList(female, femaleSearch).filter(item => item.vacated===false).map((item, index) => (
             <div
               key={item.email}
               className="flex flex-row text-sm text-center py-2 border-b border-gray-500"
