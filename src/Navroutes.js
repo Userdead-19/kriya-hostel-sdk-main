@@ -5,6 +5,7 @@ import AccommodationEdit from "./pages/AccommodationEdit";
 import AccommodationPayment from "./pages/AccommodationPayment";
 import AccPaid from "./pages/AccPaid";
 import VacateUsers from "./pages/VacateUsers";
+import Defaulters from "./pages/Defaulters";
 
 const NavRoutes = [
   // {
@@ -41,6 +42,12 @@ const NavRoutes = [
     icon: <BiDetail />,
     href: "/vacate-users",
     element: <VacateUsers />
+  },
+  {
+    title: "List of Defaulters",
+    icon: <BiDetail />,
+    href: "/defaulters",
+    element: <Defaulters />
   }
 ];
 

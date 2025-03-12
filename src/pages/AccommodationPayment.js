@@ -22,7 +22,7 @@ const AccommodationPayment = () => {
   useEffect(() => {
     const fetchRooms = async () => {
       try {
-        const response = await axios.get("http://localhost:4300/api/acc/ListofRooms");
+        const response = await axios.get("https://kriyabackend.psgtech.ac.in/api/acc/ListofRooms");
         console.log(response.data);
         setRoomData(response.data); // Set the room data in state
       } catch (error) {
