@@ -153,37 +153,37 @@ const AccommodationDetails = () => {
         <p className="text-lg mt-2 font-semibold">Boys - PSG IMSR</p>
         <div className="flex flex-row items-center text-center">
           <p className="text-sm w-1/4 flex justify-center">Date</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center">13th March Night</p>
           <p className="text-sm font-semibold w-1/4 flex justify-center">14th March Night</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center">26th March Evening</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center">15th March Night</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center">16th March Evening</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
           <p className="text-sm font-semibold w-1/4 flex justify-center text-center">13th March Night</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "23rd March Night" && i.to === "24th March Night" && i.roomType === "Common Free Hall")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "23rd March Night" && i.to === "25th March Night" && i.roomType === "Common Free Hall")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "23rd March Night" && i.to === "26th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "13th March Night" && i.to === "14th March Night" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "13th March Night" && i.to === "15th March Night" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "13th March Night" && i.to === "16th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">24th March Morning</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "24th March Morning" && i.to === "24th March Night" && i.roomType === "Common Free Hall")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "24th March Morning" && i.to === "25th March Night" && i.roomType === "Common Free Hall")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "24th March Morning" && i.to === "26th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">14th March Morning</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "14th March Morning" && i.to === "14th March Night" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "14th March Morning" && i.to === "15th March Night" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "14th March Morning" && i.to === "16th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">25th March Morning</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">15th March Morning</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "25th March Morning" && i.to === "25th March Night" && i.roomType === "Common Free Hall")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "25th March Morning" && i.to === "26th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "15th March Morning" && i.to === "15th March Night" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "15th March Morning" && i.to === "16th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">26th March Morning</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">16th March Morning</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "26th March Morning" && i.to === "26th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "16th March Morning" && i.to === "16th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
         </div>
       </div>
 
@@ -191,37 +191,37 @@ const AccommodationDetails = () => {
         <p className="text-lg mt-8 font-semibold">Boys - Two Sharing</p>
         <div className="flex flex-row items-center text-center">
           <p className="text-sm w-1/4 flex justify-center">Date</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center">24th March Night</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center">25th March Night</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center">26th March Evening</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center">14th March Night</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center">15th March Night</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center">16th March Evening</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">23rd March Night</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "23rd March Night" && i.to === "24th March Night" && i.roomType === "Two Sharing")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "23rd March Night" && i.to === "25th March Night" && i.roomType === "Two Sharing")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "23rd March Night" && i.to === "26th March Evening" && i.roomType === "Two Sharing")?.count}</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">13th March Night</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "13th March Night" && i.to === "14th March Night" && i.roomType === "Two Sharing")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "13th March Night" && i.to === "15th March Night" && i.roomType === "Two Sharing")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "13th March Night" && i.to === "16th March Evening" && i.roomType === "Two Sharing")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">24th March Morning</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "24th March Morning" && i.to === "24th March Night" && i.roomType === "Two Sharing")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "24th March Morning" && i.to === "25th March Night" && i.roomType === "Two Sharing")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "24th March Morning" && i.to === "26th March Evening" && i.roomType === "Two Sharing")?.count}</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">14th March Morning</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "14th March Morning" && i.to === "14th March Night" && i.roomType === "Two Sharing")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "14th March Morning" && i.to === "15th March Night" && i.roomType === "Two Sharing")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "14th March Morning" && i.to === "16th March Evening" && i.roomType === "Two Sharing")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">25th March Morning</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">15th March Morning</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "25th March Morning" && i.to === "25th March Night" && i.roomType === "Two Sharing")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "25th March Morning" && i.to === "26th March Evening" && i.roomType === "Two Sharing")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "15th March Morning" && i.to === "15th March Night" && i.roomType === "Two Sharing")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "15th March Morning" && i.to === "16th March Evening" && i.roomType === "Two Sharing")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">26th March Morning</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">16th March Morning</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "26th March Morning" && i.to === "26th March Evening" && i.roomType === "Two Sharing")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.maleDetails?.find(i => i.from === "16th March Morning" && i.to === "16th March Evening" && i.roomType === "Two Sharing")?.count}</p>
         </div>
       </div>
 
@@ -229,37 +229,37 @@ const AccommodationDetails = () => {
         <p className="text-lg mt-8 font-semibold">Girls - Common Free Hall</p>
         <div className="flex flex-row items-center">
           <p className="text-sm w-1/4 flex justify-center text-center">Date</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">24th March Night</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">25th March Night</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">26th March Evening</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">14th March Night</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">15th March Night</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">16th March Evening</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">23rd March Night</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "23rd March Night" && i.to === "24th March Night" && i.roomType === "Common Free Hall")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "23rd March Night" && i.to === "25th March Night" && i.roomType === "Common Free Hall")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "23rd March Night" && i.to === "26th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">13th March Night</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "13th March Night" && i.to === "14th March Night" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "13th March Night" && i.to === "15th March Night" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "13th March Night" && i.to === "16th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">24th March Morning</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "24th March Morning" && i.to === "24th March Night" && i.roomType === "Common Free Hall")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "24th March Morning" && i.to === "25th March Night" && i.roomType === "Common Free Hall")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "24th March Morning" && i.to === "26th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">14th March Morning</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "14th March Morning" && i.to === "14th March Night" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "14th March Morning" && i.to === "15th March Night" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "14th March Morning" && i.to === "16th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">25th March Morning</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">15th March Morning</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "25th March Morning" && i.to === "25th March Night" && i.roomType === "Common Free Hall")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "25th March Morning" && i.to === "26th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "15th March Morning" && i.to === "15th March Night" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "15th March Morning" && i.to === "16th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">26th March Morning</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">16th March Morning</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "26th March Morning" && i.to === "26th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "16th March Morning" && i.to === "16th March Evening" && i.roomType === "Common Free Hall")?.count}</p>
         </div>
       </div>
 
@@ -267,37 +267,37 @@ const AccommodationDetails = () => {
         <p className="text-lg mt-8 font-semibold">Girls - 4 / 6 Sharing with common bathroom</p>
         <div className="flex flex-row items-center">
           <p className="text-sm w-1/4 flex justify-center text-center">Date</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">24th March Night</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">25th March Night</p>
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">26th March Evening</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">14th March Night</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">15th March Night</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">16th March Evening</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">23rd March Night</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "23rd March Night" && i.to === "24th March Night" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "23rd March Night" && i.to === "25th March Night" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "23rd March Night" && i.to === "26th March Evening" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">13th March Night</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "13th March Night" && i.to === "14th March Night" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "13th March Night" && i.to === "15th March Night" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "13th March Night" && i.to === "16th March Evening" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">24th March Morning</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "24th March Morning" && i.to === "24th March Night" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "24th March Morning" && i.to === "25th March Night" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "24th March Morning" && i.to === "26th March Evening" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">14th March Morning</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "14th March Morning" && i.to === "14th March Night" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "14th March Morning" && i.to === "15th March Night" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "14th March Morning" && i.to === "16th March Evening" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">25th March Morning</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">15th March Morning</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "25th March Morning" && i.to === "25th March Night" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "25th March Morning" && i.to === "26th March Evening" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "15th March Morning" && i.to === "15th March Night" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "15th March Morning" && i.to === "16th March Evening" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
         </div>
 
         <div className="flex flex-row items-center border-b border-black pb-1">
-          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">26th March Morning</p>
+          <p className="text-sm font-semibold w-1/4 flex justify-center text-center">16th March Morning</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">-</p>
-          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "26th March Morning" && i.to === "26th March Evening" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
+          <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "16th March Morning" && i.to === "16th March Evening" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
         </div>
       </div>
       <button
