@@ -237,8 +237,8 @@ const AccommodationEdit = () => {
                 <Toggle
                   title="Room Type"
                   valueState={[roomType, setRoomType]}
-                  options={["PSG IMSR", "PSG Tech Hostel"]}
-                  amount={["₹ 250", "₹ 350"]}
+                  options={["PSG IMSR","PSG IMSR Refreshment", "PSG Tech Hostel"]}
+                  amount={["₹ 250","₹ 125", "₹ 350"]}
                   className="w-full"
                 />
 
@@ -255,9 +255,10 @@ const AccommodationEdit = () => {
                   valueState={[roomType, setRoomType]}
                   options={[
                     "PSG IMSR",
-
+                    "PSG IMSR Refreshment",
+                     
                   ]}
-                  amount={["₹ 250"]}
+                  amount={["₹ 250","₹ 150"]}
                   className="w-full"
                 />
               </div>
