@@ -33,8 +33,8 @@ const AccommodationEdit = () => {
 
   // Room costs definition - consolidated into a single object
   const roomCosts = {
-    "PSG IMSR": 250,
-    "PSG IMSR Refreshment": 125,
+    "PSG IMSR": 0,
+    "PSG IMSR Refreshment": 0,
     "PSG Tech Hostel": 350,
     "Common Free Hall": 0,
     "Two Sharing": 150,
