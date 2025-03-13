@@ -49,7 +49,6 @@ const AccommodationEdit = () => {
     "15th March Morning",
     "15th March Night",
     "16th March Morning",
-    "16th March Night",
   ];
 
   const toDates = [
@@ -58,18 +57,24 @@ const AccommodationEdit = () => {
     "15th March Morning",
     "15th March Night",
     "16th March Morning",
-    "16th March Night",
+    "16th March Evening",// Added missing last option
   ];
 
   // Calculate the number of days based on selected dates
   const calculateDays = () => {
     if (!fromDate || !toDate) return 0;
 
-    return fromDate === "13th March Night"
-      ? toDates.indexOf(toDate) - fromDates.indexOf(fromDate) + 1
-      : toDates.indexOf(toDate) - fromDates.indexOf(fromDate) + 2;
-  };
+    const fromIndex = fromDates.indexOf(fromDate);
+    const toIndex = toDates.indexOf(toDate);
 
+    // Return 0 if any date is invalid or if toDate comes before fromDate
+    if (fromIndex === -1 || toIndex === -1) return 0;
+
+    // Calculate actual days based on time intervals
+    // Each day has 2 time slots (Morning and Night)
+    // We divide by 2 and round up for partial days
+    return Math.ceil((toIndex + 1) / 2);
+  };
   // Calculate number of days for cost purposes
   const calculateStayDuration = () => {
     if (roomType === "PSG Tech Hostel") {
