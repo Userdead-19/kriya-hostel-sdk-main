@@ -68,3 +68,27 @@ export const fetchSendMail = (type, id) =>
 
 export const fetchDeptWise = () =>
   axios.get(`${BASE_URL}/statistics/dept-wise`, {});
+
+
+export const fetchExcelSheet = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}/acc/download-accomodation-data`, {
+      responseType: 'blob' // Important for handling file downloads
+    });
+
+    // Create a blob from the response data
+    const url = window.URL.createObjectURL(new Blob([response.data]));
+    const link = document.createElement('a');
+    link.href = url;
+
+    // Set file name
+    link.setAttribute('download', `accommodation_data_${new Date().toISOString()}.csv`);
+
+    // Append to the DOM and trigger the download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  } catch (error) {
+    console.error('Error downloading CSV:', error);
+  }
+};

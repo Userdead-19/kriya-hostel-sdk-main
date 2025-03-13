@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
-import { fetchMasterAccommodation } from "../API/calls";
+import { fetchMasterAccommodation, fetchExcelSheet } from "../API/calls";
 import Layout from "../components/Layout";
 
 const AccommodationDetails = () => {
@@ -300,6 +300,12 @@ const AccommodationDetails = () => {
           <p className="font-semibold text-2xl w-1/4 flex justify-center text-center">{accommodation?.femaleDetails?.find(i => i.from === "26th March Morning" && i.to === "26th March Evening" && i.roomType === "4 / 6 Sharing with common bathroom")?.count}</p>
         </div>
       </div>
+      <button
+        className="bg-blue-500 text-white px-4 py-2 mt-8 rounded-md"
+        onClick={() => fetchExcelSheet()} // Ensures function execution
+      >
+        Download Report
+      </button>
 
     </Layout>
   );
