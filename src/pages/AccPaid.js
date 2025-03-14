@@ -22,6 +22,7 @@ const AccPaid = () => {
         success: (res) => {
           setMale(res.data.malePaid);
           setFemale(res.data.femalePaid);
+          console.log(res.data.malePaid);
           return "Details Fetched";
         },
       },
@@ -117,7 +118,7 @@ const AccPaid = () => {
           <p className="hidden lg:block w-[5%] font-semibold">Vacated</p>
         </div>
         {male &&
-          filterList(male, maleSearch).filter(item => item.vacated===false).map((item, index) => (
+          filterList(male, maleSearch).filter(item => item.vacated === false).map((item, index) => (
             <div
               key={item.email}
               className="flex flex-row text-sm text-center py-2 border-b border-gray-500"
@@ -131,12 +132,29 @@ const AccPaid = () => {
               </p>
               <p className="hidden lg:block w-[10%]">{item.amenities}</p>
               <p className="hidden lg:block w-[10%]">
-                {item.breakfast1 +
-                  item.breakfast2 +
-                  item.breakfast3 +
-                  item.dinner1 +
-                  item.dinner2 +
-                  item.dinner3}
+                {/* {
+                
+                item.breakfast1===true?1+"bre":0 +
+                  item.breakfast2===true?1:0 +
+                  item.breakfast3===true?1:0 +
+                  item.dinner1==true?1:0 +
+                  item.dinner2==true?1:0 +
+                  item.dinner3==true?1:0} */}
+                {
+                  (() => {
+                    const breakfastCount =
+                      (item.breakfast1 ? 1 : 0) +
+                      (item.breakfast2 ? 1 : 0) +
+                      (item.breakfast3 ? 1 : 0);
+
+                    const dinnerCount =
+                      (item.dinner1 ? 1 : 0) +
+                      (item.dinner2 ? 1 : 0) +
+                      (item.dinner3 ? 1 : 0);
+
+                    return `${breakfastCount} Bre, ${dinnerCount} Din`;
+                  })()
+                }
               </p>
               <p className="w-[20%] lg:w-[10%] font-semibold">
                 Rs. {item.amount}
@@ -218,7 +236,7 @@ const AccPaid = () => {
           <p className="hidden lg:block w-[5%] font-semibold">Vacated</p>
         </div>
         {female &&
-          filterList(female, femaleSearch).filter(item => item.vacated===false).map((item, index) => (
+          filterList(female, femaleSearch).filter(item => item.vacated === false).map((item, index) => (
             <div
               key={item.email}
               className="flex flex-row text-sm text-center py-2 border-b border-gray-500"

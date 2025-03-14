@@ -200,6 +200,7 @@ const AccommodationEdit = () => {
       {
         loading: "Updating Details",
         success: (res) => {
+          // console.log(data)
           setData(null); // Clear the data
           return "Details Updated";
         },
@@ -207,7 +208,7 @@ const AccommodationEdit = () => {
       }
     );
   };
-
+ 
   const resetForm = () => {
     setId("");
     setKriyaId("");
@@ -227,7 +228,7 @@ const AccommodationEdit = () => {
     setMornings("0");
     setTotalCost(0);
   };
-
+  console.log(data)
   return (
     <Layout title={"Edit Accommodation Details"} className={"space-y-6"}>
       <Row>
