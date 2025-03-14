@@ -153,7 +153,7 @@ const AccommodationPayment = () => {
           <p><b className="font-semibold">No. of Days:</b> {data.days} Days</p>
           <p><b className="font-semibold">From Date:</b> {data.from}</p>
           <p><b className="font-semibold">To Date:</b> {data.to}</p>
-          <p><b className="font-semibold">Meals:</b> {data.dinner1 && "23th Dinner, "}{data.breakfast1 && "24th Breakfast, "}{data.dinner2 && "24th Dinner, "}{data.breakfast2 && "25th Breakfast, "}{data.dinner3 && "25th Dinner, "}{data.breakfast3 && "26th Breakfast"}</p>
+          <p><b className="font-semibold">Meals:</b> {data.dinner1 && "13th Dinner, "}{data.breakfast1 && "14th Breakfast, "}{data.dinner2 && "14th Dinner, "}{data.breakfast2 && "15th Breakfast, "}{data.dinner3 && "15th Dinner, "}{data.breakfast3 && "16th Breakfast"}</p>
           <p><b className="font-semibold">Amenities Required:</b> {data.amenities}</p>
           <p className="text-xl"><b className="font-semibold">Total Amount:</b> ₹ {data.amount}</p>
           <p className="text-xl"><b className="font-semibold">Payment Status: {data.payment || data.amount===0? <span className="text-amber-500">Paid</span> : <span className="text-red-500">Not Paid</span>}</b></p>

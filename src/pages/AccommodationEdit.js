@@ -345,7 +345,7 @@ const AccommodationEdit = () => {
               </div>
             </div>
           ) : null}
-
+          {(data.gender === "Male" && roomType === "PSG Tech Hostel")?
           <div className="w-full">
             <h1 className="mt-1 text-lg font-semibold">Meals</h1>
             <h1 className="mt-1 text-sm">
@@ -434,6 +434,8 @@ const AccommodationEdit = () => {
               </div>
             </div>
           </div>
+          :null
+          }
 
           <div className="flex flex-row w-1/2 items-center border-t border-b pb-2 border-black pt-2">
             <p className="w-1/2 text-lg">New Total</p>
